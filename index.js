@@ -1,4 +1,4 @@
-const http = require('http'); //require = import;  http = biblioteca padrao do node que permite o fluxo de rede
+/* const http = require('http'); //require = import;  http = biblioteca padrao do node que permite o fluxo de rede
 const hostname = '0.0.0.0';  //hostname = ip que ele vai aceitar solicitações (pode ser nome de domínio, maquina local) 
 //como estamos no git tem que usar 000 para executar portas //
 const port = 3000;
@@ -16,7 +16,27 @@ server.listen(port, hostname, () => {
 });
 
 //TAREFA: fazer com que o texto da tela atualize sem ter que sair e entrar do servidor
-//TAREFA 2: instalar express
 // Instalar nodemon 
 
-// Para rodar: node index.js no terminal
+// Para rodar: node index.js no terminal */
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Servidor rodando com sucesso!');
+});
+
+const prod = [
+    {id:1, nome:"Notebook", preco: 6700},
+    {id:2, nome:"Mouse", preco: 120}
+];
+
+app.get("/produtos", (req, res) => {
+    res.status(200).json(prod);
+});
+
+app.listen(port, () => {
+  console.log(`Servidor iniciado em http://localhost:${port}`);
+});
