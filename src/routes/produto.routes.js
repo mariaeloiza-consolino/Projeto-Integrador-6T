@@ -1,3 +1,4 @@
+/* 
 const express = require ("express");
 const router = express.Router(); //chama uma intstancia de uma classe e coloca a referencia na variavel router
 
@@ -10,3 +11,16 @@ router.post("/", controller.criar); //rota
 
 module.exports = router; 
 //além de fazer o require (import) do arquivo de rota no index.js, é necessário exportar a variavel de rota para usar
+*/
+
+const express = require("express");
+const router = express.Router();
+
+const controller = 
+  require("../controllers/produto.controller");
+
+router.get("/", controller.listar);
+router.get("/:id", controller.buscarPorId);
+router.post("/", controller.criar);
+
+module.exports = router;

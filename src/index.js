@@ -21,6 +21,8 @@ server.listen(port, hostname, () => {
 // Para rodar: node index.js no terminal */
 
 const express = require('express');
+const produtoRoutes = require ('./routes/produto.routes'); //para usar o que foi criado em produto routes e controller, precisa chamar ele aqui
+
 const app = express();
 const port = 3000;
 
@@ -28,15 +30,18 @@ app.get('/', (req, res) => {
   res.send('Servidor rodando com sucesso!');
 });
 
-const prod = [
+/*const prod = [
     {id:1, nome:"Notebook", preco: 6700},
     {id:2, nome:"Mouse", preco: 120}
 ];
 
 app.get("/produtos", (req, res) => {
     res.status(200).json(prod);
-});
+});*/
+
+app.use('/produtos', produtoRoutes);
 
 app.listen(port, () => {
   console.log(`Servidor iniciado em http://localhost:${port}`);
 });
+ 
