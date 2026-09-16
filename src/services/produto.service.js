@@ -4,16 +4,15 @@
    não depende de HTTP
 */
 
-// 1. Importação do Model
-const Produto = require("../models/produto.model");
+// importa o Model
+const Produto = require("../models/produto.models");
 
-// 2. O array (seu banco de dados) PRECISA continuar aqui
+/* essa linha está comentada pois essas informações devem vir do model
 const produtos = [
   { id: 1, nome: "Notebook", preco: 3500 },
   { id: 2, nome: "Mouse", preco: 120 }
-];
+]; */
 
-// 3. As funções de leitura continuam iguais
 function listar() {
   return produtos;
 }
